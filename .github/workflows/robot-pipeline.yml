@@ -23,7 +23,6 @@ jobs:
           pip install robotframework-requests
           pip install robotframework-faker
           pip install robotframework-jsonlibrary
-          pip install robotframework-datetime
           pip install robotframework-collections
 
       - name: Rodar Testes
