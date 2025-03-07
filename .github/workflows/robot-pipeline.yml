@@ -1,0 +1,30 @@
+name: Run Robot Framework Tests
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar ambiente Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependências
+        run: |
+          pip install robotframework
+          pip install robotframework-requests
+          pip install robotframework-faker
+          pip install robotframework-jsonlibrary
+          pip install robotframework-datetime
+          pip install robotframework-collections
+
+      - name: Rodar Testes
+        run: robot --outputdir results tests/
