@@ -17,14 +17,15 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Instalar setuptools
+        run: pip install setuptools
+        
       - name: Instalar dependências
         run: |
-          pip install robotframework
-          pip install robotframework-requests
-          pip install robotframework-faker
-          pip install robotframework-jsonlibrary
-          pip install robotframework-datetime
-          pip install robotframework-collections
+            pip install robotframework
+            pip install robotframework-requests
+            pip install robotframework-faker
+            pip install robotframework-jsonlibrary
 
       - name: Rodar Testes
         run: robot --outputdir results tests/
